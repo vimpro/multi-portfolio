@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gurch Multi Portfolio - Unit 1</title>
 
 </head>
-    <link rel="stylesheet" href="/style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
-            onload="renderMathInElement(document.body);"></script>
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body);"></script>
 </head>
 </head>
+
 <body>
     <section>
         <h1><span class="gradient">Unit 1</span></h1>
@@ -32,35 +34,161 @@
         <p>Let's take a look at a parametrics problem first. An example is the cycloid curve:</p>
         <img src="https://upload.wikimedia.org/wikipedia/commons/f/f0/Cycloid_animated_.gif" alt="Cycloid">
         <p>
-            To solve for the position of the given point on the wheel as a function of time, I first
+            To solve for the position of a point on the wheel as a function of time, I first
             described the motion in the vertical direction. If we ignore the horizontal movement, the
-            vertical motion is simply a sinusoid (negated, because the motion of the wheel is clockwise), 
-            shifted up by 'r' (since the center of the wheel is a height of 'r' above the ground):
+            vertical motion is simply sinusoidal, shifted up by \(r\) (since the center of the wheel is a
+            height of \(r\) above the ground). The cosine function is also negated, because the motion of the wheel is
+            clockwise.
         </p>
         <p>\[
-            y(t) = -rsin(t) + r
-        \]</p>
+            y(t) = r - r\cos(t)
+            \]</p>
         <p>
-            From there, the horizontal motion consists of two components: a constant velocity to the right,
-            and a sinusoidal component left and right. Since velocity is distance * time, this is the result:
+            From there, the horizontal motion consists of two components: a constant velocity to the right
+            and a sinusoidal term. The center of the wheel moves to the right at a steady velocity \(r t\),
+            while the rotation of the point introduces the oscillation:
         </p>
         <p>\[
-            x(t) = rcos(t) + rt
-        \]</p>
-        <p>Just to check, let's plot this in Desmos:</p>
-        
+            x(t) = r t - r\sin(t)
+            \]</p>
+
         <p>
-            This technique of using a parametric is super useful not only because we can separate the horizontal
-            and vertical components of the motion, but also because it is literally required for some problems like
-            this one. There isn't actually a way to write the cartesian equation at all, since 't' is both a polynomial
-            and a trigonometric term.
+            This technique of using a parametric description is useful not only because we can separate the horizontal
+            and vertical components of the motion, but also because in problems like this it's literally required.
+            There isn't a clean way to write the Cartesian equation, since \(t\) appears in both polynomial and
+            trigonometric forms.
         </p>
 
         <hr>
-        
+
         <h2>Problem 2: polar</h2>
         <p>Now let's see a problem with polar equations. I have this problem about arc length in polar form:</p>
 
+        <p>\[
+            \text{Find the length of the cardioid} \quad r = 1 + \sin(\theta).
+            \]</p>
+
+        <p>
+            We can use the pythagorean theorem to find the length of a curve: \(\sqrt{(dx)^2+(dy)^2}\).
+            If we switch to polar coordinates, where every point is described by
+            \((r,\theta)\), the same idea works but the formula changes slightly. After simplifying, the result is:
+        </p>
+
+        <p>\[
+            L = \int_{\theta_1}^{\theta_2} \sqrt{\,r(\theta)^2 + \left(\frac{dr}{d\theta}\right)^2\,}\,d\theta
+            \]</p>
+
+        <p>
+            For our curve \(r = 1 + \sin(\theta)\), we first find the derivative:
+        </p>
+        <p>\[
+            \frac{dr}{d\theta} = \cos(\theta)
+            \]</p>
+
+        <p>And now substitute</p>
+
+        <p>\[
+            L = \int_0^{2\pi} \sqrt{(1+\sin\theta)^2 + (\cos\theta)^2}\,d\theta
+            \\[6pt]
+            = \int_0^{2\pi} \sqrt{1+2\sin(\theta)+\sin(\theta)^2 + \cos(\theta)^2}\,d\theta
+            \\[6pt]
+            = \int_0^{2\pi} \sqrt{2+2\sin\theta}\,d\theta
+            \]</p>
+
+        <p>
+            I evaluated the integral using a graphing calculator. The result is \(L=8\).
+        </p>
+
+        <iframe src="https://www.desmos.com/calculator/ncfxxjtfhn?embed" width="500" height="500"
+            style="border: 1px solid #ccc" frameborder=0></iframe>
+
+        <p>
+            Again, polar coordinates are very useful in this scenario because the curve is tedious to describe with
+            Cartesian coordinates.
+            In general, I find that most problems containing polar form require very similar methodology to cartesian
+            form. Since we know
+            how to convert between the forms, we can rewrite many of the formulas too.
+        </p>
+
+        <hr>
+
+        <h2>Conic sections cheat sheet</h2>
+        <p>This is all of the info about conic sections, both cartesian and polar, in one place:</p>
+
+        <p>First in carteisan form:</p>
+        <table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse; text-align: center;">
+            <thead>
+                <tr>
+                    <th>Conic</th>
+                    <th>Equation</th>
+                    <th>Focus / Foci</th>
+                    <th>Directrix</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Circle</td>
+                    <td>\(\small{(x-h)^2 + (y-k)^2 = r^2}\)</td>
+                    <td>-</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>Ellipse (horizontal)</td>
+                    <td>\(\small{\tfrac{(x-h)^2}{a^2} + \tfrac{(y-k)^2}{b^2} = 1}\)</td>
+                    <td>\((h \pm c, k)\)</td>
+                    <td>\(x = h \pm \tfrac{a^2}{c}\)</td>
+                </tr>
+                <tr>
+                    <td>Ellipse (vertical)</td>
+                    <td>\(\small{\tfrac{(x-h)^2}{b^2} + \tfrac{(y-k)^2}{a^2} = 1}\)</td>
+                    <td>\((h, k \pm c)\)</td>
+                    <td>\(y = k \pm \tfrac{a^2}{c}\)</td>
+                </tr>
+                <tr>
+                    <td>Hyperbola (horizontal)</td>
+                    <td>\(\small{\tfrac{(x-h)^2}{a^2} - \tfrac{(y-k)^2}{b^2} = 1}\)</td>
+                    <td>\((h \pm c, k)\)</td>
+                    <td>\(x = h \pm \tfrac{a^2}{c}\)</td>
+                </tr>
+                <tr>
+                    <td>Hyperbola (vertical)</td>
+                    <td>\(\small{\tfrac{(y-k)^2}{a^2} - \tfrac{(x-h)^2}{b^2} = 1}\)</td>
+                    <td>\((h, k \pm c)\)</td>
+                    <td>\(y = k \pm \tfrac{a^2}{c}\)</td>
+                </tr>
+                <tr>
+                    <td>Parabola (horizontal)</td>
+                    <td>\(\small{(y-k)^2 = 4p(x-h)}\)</td>
+                    <td>\((h+p, k)\)</td>
+                    <td>\(x = h-p\)</td>
+                </tr>
+                <tr>
+                    <td>Parabola (vertical)</td>
+                    <td>\(\small{(x-h)^2 = 4p(y-k)}\)</td>
+                    <td>\((h, k+p)\)</td>
+                    <td>\(y = k-p\)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>Where \(a\) is the major axis, \(b\) is the minor axis, and:</p>
+        <p>For an elipse: \(c^2\) = \(a^2 + b^2\)</p>
+        <p>For a hyperbola: \(c^2\) = \(a^2 - b^2\)</p>
+
+        <p>Also consider the asymptotes for a hyperbola:</p>
+        <p>For horizontal: \[
+            y - k = \pm \frac{b}{a}(x - h)
+            \]</p>
+
+        <p>For vertical: \[
+            y - k = \pm \frac{a}{b}(x - h)
+            \]</p>
+
+
+        <hr>
+
+        
     </section>
 </body>
+
 </html>
