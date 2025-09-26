@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gurch Multi Portfolio - Unit 1</title>
+
+</head>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+            onload="renderMathInElement(document.body);"></script>
+</head>
+</head>
+<body>
+    <section>
+        <h1><span class="gradient">Unit 1</span></h1>
+        <a href="/">Home</a>
+        <h2>Relevant topics: parametrics, polar form, conic sections</h2>
+        <p>
+            This unit was about parametrics, polar equations, and conic sections. It is sensical in many ways
+            to cover these concepts in the same unit, especially the former two because they are extensions
+            beyond the traditional Cartesian coordinate system. Parametric and polar form are
+            are partiuclarly useful because they allow you to express curves that aren't expressable
+            in the Cartesian form.
+        </p>
+
+        <hr>
+
+        <h2>Problem 1: parametrics</h2>
+        <p>Let's take a look at a parametrics problem first. An example is the cycloid curve:</p>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/f0/Cycloid_animated_.gif" alt="Cycloid">
+        <p>
+            To solve for the position of the given point on the wheel as a function of time, I first
+            described the motion in the vertical direction. If we ignore the horizontal movement, the
+            vertical motion is simply a sinusoid (negated, because the motion of the wheel is clockwise), 
+            shifted up by 'r' (since the center of the wheel is a height of 'r' above the ground):
+        </p>
+        <p>\[
+            y(t) = -rsin(t) + r
+        \]</p>
+        <p>
+            From there, the horizontal motion consists of two components: a constant velocity to the right,
+            and a sinusoidal component left and right. Since velocity is distance * time, this is the result:
+        </p>
+        <p>\[
+            x(t) = rcos(t) + rt
+        \]</p>
+        <p>Just to check, let's plot this in Desmos:</p>
+        
+        <p>
+            This technique of using a parametric is super useful not only because we can separate the horizontal
+            and vertical components of the motion, but also because it is literally required for some problems like
+            this one. There isn't actually a way to write the cartesian equation at all, since 't' is both a polynomial
+            and a trigonometric term.
+        </p>
+
+        <hr>
+        
+        <h2>Problem 2: polar</h2>
+        <p>Now let's see a problem with polar equations. I have this problem about arc length in polar form:</p>
+
+    </section>
+</body>
+</html>
